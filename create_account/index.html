@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cadastro</title>
+</head>
+<body>
+    <script src="script.js"></script>
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const nome = document.querySelector('#nome').value;
+            const sobrenome = document.querySelector('#sobrenome').value;
+            const email = document.querySelector('#email').value;
+            const senha = document.querySelector('#senha').value;
+            const dataNascimento = document.querySelector('#data_de_nascimento').value;
+            const genero = document.querySelector('input[name="genero"]:checked').value;
+            const cidade = document.querySelector('#cidade').value;
+            const estado = document.querySelector('#estado').value;
+            const endereco = document.querySelector('#endereco').value;
+
+            // Enviar o e-mail de verificação
+            enviarEmailVerificacao(email);
+
+            // Redirecionar para a página de espera
+            redirecionarParaEspera();
+        });
+    </script>
+    <main id="main">
+        <div>
+            <h1 id="title">Cadastro</h1>
+            <p id="subtitle">Complete os espaços abaixo</p>
+        </div>
+        <form class="box">
+            <fieldset class="fild">
+                <div class="inputbox">
+                    <label for=""><strong>Nome:</strong></label>
+                    <input type="text" name="nome" id="nome" required>
+                </div>
+                <div class="inputbox">
+                    <label for=""><strong>Sobrenome:</strong></label>
+                    <input type="text" name="sobrenome" id="sobrenome" required>
+                </div>
+            </fieldset>
+            <div class="inputbox">
+                <label for=""><strong>Email:</strong></label>
+                    <input type="email" name="email" id="email" required>
+            </div>
+            <div class="inputbox">
+                <label for=""><strong>Senha:</strong></label>
+                <input type="password" name="senha" id="senha" required>
+        </div>
+            <div class="inputbox">
+                <label for=""><strong>Data de Nascimento:</strong></label>
+                <input type="date" name="data_de_nascimento" id="data_de_nascimento">
+            </div>
+            <div class="inputbox">
+                <label for=""><strong>Gênero:</strong></label>
+                    <input type="radio" name="genero" value="maculino"><strong>Masculino</strong>
+                </label>
+                <label for="">
+                    <input type="radio" name="genero" value="feminino"><strong>Feminino</strong>
+                </label>
+                <label for="">
+                    <input type="radio" name="genero" value="outro"><strong>Outro</strong>
+                </label>
+            </div>
+            <div class="inputBox">
+                <input type="text" name="cidade" id="cidade" class="inputUser"required>
+                <label for="cidade"><strong>Cidade</strong></label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="estado" id="estado" class="inputUser"required>
+                    <label for="estado"><strong>Estado</strong></label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="endereco" id="endereco" class="inputUser"required>
+                    <label for="endereco"><strong>Endereço</strong></label>
+                    <br>
+                    <a id="bt" href="login.html"><strong>Entrar!</strong></a>
+                </div>
+            <button class="bt" type="submit">Concluído</button>
+        </form>
+    </main>
+</body>
+</html>
